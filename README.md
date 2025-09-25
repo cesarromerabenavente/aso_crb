@@ -1,1 +1,1 @@
-En este repositorio están las prácticas de César Romera Benavente
+En este repositorio están las prácticas de César Romera Benavente de la asignatura ASO de ASIR2
