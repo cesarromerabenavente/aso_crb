@@ -2,4 +2,6 @@
 
 [Práctica 2](./pr0502/pr0502.md)
 
+[Práctica 3](./pr0503/pr0503.md)
+
 [Volver al nivel superior](..)
