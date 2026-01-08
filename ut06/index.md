@@ -8,4 +8,6 @@
 
 [Práctica 5](./pr0605/pr0605.md)
 
+[Práctica 6](./pr0606/pr0606.md)
+
 [Volver al nivel superior](..)
