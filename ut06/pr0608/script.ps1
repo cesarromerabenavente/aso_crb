@@ -6,25 +6,42 @@ $kbsFaltantes = @()
 
 $kbsExtra = @()
 
+$contadorReq = 0
+
+$contadorIns = 0
+
 foreach ($itemReq in $kbsRequeridos) {
 
     if ($itemReq -in $kbsInstalados) {
-        Write-Host "El parche $itemReq ya esta instalado"
+        $contadorIns = $contadorIns +1
     } else {
-        Write-Host "El parche $itemReq NO esta instalado"
         $kbsFaltantes += $itemReq
     }
+
+    $contadorReq = $contadorReq + 1
 
 }
 
 foreach ($itemIns in $kbsInstalados) {
 
-    if ($itemIns -in $kbsRequeridos) {
-        Write-Host "El parche previamente instalado $itemIns era requerido"
-    } else {
-        Write-Host "El parche previamente instalado $itemIns NO era requerido"
+    if ($itemIns -notin $kbsRequeridos) {
         $kbsExtra += $itemIns
-    }
+    } 
 
 }
 
+$porcentaje = ($contadorIns / $contadorReq) * 100
+
+Write-Host "
+=== AUDITORIA DE SEGURIDAD ===
+Total Requeridos: $contadorReq
+Total Instalados: $contadorIns
+
+ESTADO DE CUMPLIMIENTO: $porcentaje%
+
+[URGENTE] Parches Faltantes:
+$($kbsFaltantes -join ', ')
+
+[INFO] Parches 'Extra' instalados (No criticos):
+$($kbsExtra -join ' - ')
+"
