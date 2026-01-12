@@ -12,4 +12,6 @@
 
 [Práctica 7](./pr0607/pr0607.md)
 
+[Práctica 8](./pr0608/pr0608.md)
+
 [Volver al nivel superior](..)
