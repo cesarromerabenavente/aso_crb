@@ -10,13 +10,13 @@ $contadorReq = 0
 
 $contadorIns = 0
 
+$contadorYaInstalados = 0
+
 foreach ($itemReq in $kbsRequeridos) {
 
-    if ($itemReq -in $kbsInstalados) {
-        $contadorIns = $contadorIns +1
-    } else {
+    if ($itemReq -notin $kbsInstalados) {
         $kbsFaltantes += $itemReq
-    }
+    } 
 
     $contadorReq = $contadorReq + 1
 
@@ -24,13 +24,17 @@ foreach ($itemReq in $kbsRequeridos) {
 
 foreach ($itemIns in $kbsInstalados) {
 
-    if ($itemIns -notin $kbsRequeridos) {
+    if ($itemIns -in $kbsRequeridos) {
+        $contadorYaInstalados = $contadorYaInstalados + 1
+    } else {
         $kbsExtra += $itemIns
-    } 
+    }
+
+    $contadorIns = $contadorIns +1
 
 }
 
-$porcentaje = ($contadorIns / $contadorReq) * 100
+$porcentaje = ($contadorYaInstalados / $contadorReq) * 100
 
 Write-Host "
 === AUDITORIA DE SEGURIDAD ===
