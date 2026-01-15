@@ -6,30 +6,57 @@ $suma = 0
 
 $count = $muestrasCPU.Count
 
+$max = 0
+
+$reco = ""
+
+$contador = 0
+
 for ($i = 0; $i -lt $count; $i++) {
 
     $suma = $suma + $muestrasCPU[$i]
-
-    Write-Host "Paso $i : Suma total momentanea: $suma"
-
 
 }
 
 $media = ($suma / $count)
 
-$suma
+for ($i = 0; $i -lt $count; $i++) {
 
-$media
+    for ($j = 0; $j -lt $count; $j++) {
+
+        if ($muestrasCPU[$i] -gt $muestrasCPU[$j]) {
+            $max = $muestrasCPU[$i]
+        }
+
+    }   
+
+}
+
+for ($i = 0; $i -lt $count; $i++) {
+
+    if ($muestrasCPU[$i] -gt 90) {
+            $contador++
+    }
+
+}
+
+if ($media -gt 70) {
+    $reco = "NECESARIO UPGRADE DE HARDWARE."
+} elseif ($contador -gt 3) {
+    $reco = "NECESARIO UPGRADE DE HARDWARE."
+} else {
+    $reco = "FALSA ALARMA. EL SERVIDOR AGUANTA."
+}
 
 Write-Host "
 === INFORME DE RENDIMIENTO ===
-Muestras analizadas: $Count
+Muestras analizadas: $count
 
 RESULTADOS DEL ANALISIS:
-- Carga Promedio: 46.1 %
-- Pico Maximo: 100 %
-- Incidentes Criticos (>90%): 6
+- Carga Promedio: $media %
+- Pico Maximo: $max %
+- Incidentes Criticos (>90%): $contador
 
 DIAGNOSTICO:
-[RECOMENDACION] NECESARIO UPGRADE DE HARDWARE
+[RECOMENDACION] $reco
 "
