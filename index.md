@@ -12,6 +12,8 @@ Enlaces a los index de las unidades de trabajo:
 
 [Index ut03](./ut03/index.md)
 
+[Index ut04](./ut04/index.md)
+
 [Index ut05](./ut05/index.md)
 
 [Index ut06](./ut06/index.md)
