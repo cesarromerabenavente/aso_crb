@@ -1,3 +1,3 @@
-[Práctica 1](./pr0401/pr0401.md)
+[Práctica 1](./pr0401.md)
 
 [Volver al nivel superior](..)
